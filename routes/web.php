@@ -24,6 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client', 'ClientController@index');
 Route::get('/admin', 'AdminController@index');
 
+
+Route::get('/pdf','PdfController@CnPdf')->name('CnPdf');
+
 /*Route::group([], function () {
    Route::get('/', 'HomeController@index')->name('home');
 });*/

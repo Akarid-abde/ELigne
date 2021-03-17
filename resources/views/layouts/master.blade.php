@@ -9,7 +9,16 @@
 </head>
 <body>
 
-@yield('content')
+<div class="container">
+    <div class="row">
+        <div class="row justify-content-center mt-10">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <!-- ici existe le contenuer de home.blade.php -->
+                 @yield('content')
+            </div>   
+        </div>
+    </div>   
+</div>
 
 <div class="container-fluid" id="grad1">
     <div class="row justify-content-center mt-0">
@@ -138,7 +147,8 @@
 
 
 <script src="{{ asset('assets/js/bootstrap.min.js')}}" type="text/javascript" ></script>
-<script src="{{ asset('assets/js/jquery.min.js')}}" type="text/javascript" ></script>
+<script  src="{{asset('assets/js/jquery-3.3.1.js')}}"></script>
 <script src="{{ asset('assets/js/style.js')}}" type="text/javascript" ></script>
+@yield('javascripts')
 </body>
 </html>
