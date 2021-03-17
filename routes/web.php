@@ -26,6 +26,13 @@ Route::get('/admin', 'AdminController@index');
 
 
 Route::get('/pdf','PdfController@CnPdf')->name('CnPdf');
+Route::get('/CN','CnController@index');
+
+
+/*CN*/
+
+Route::post('/CN/store','CnController@store');
+Route::get('/pdf','CnController@CnPdf')->name('CnPdf');
 
 /*Route::group([], function () {
    Route::get('/', 'HomeController@index')->name('home');
