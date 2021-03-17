@@ -9,11 +9,12 @@
 </head>
 <body>
 
+
+
 <div class="container">
     <div class="row">
         <div class="row justify-content-center mt-10">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                <!-- ici existe le contenuer de home.blade.php -->
                  @yield('content')
             </div>   
         </div>

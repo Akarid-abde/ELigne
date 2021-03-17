@@ -9,7 +9,7 @@
 }
 </style>
 </head>
-<body dir="rtl">
+<body>
 		<div class="container">
 		
     <div class="row">

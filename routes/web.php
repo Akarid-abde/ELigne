@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,9 +35,21 @@ Route::get('/CN','CnController@index');
 Route::post('/CN/store','CnController@store');
 Route::get('/pdf','CnController@CnPdf')->name('CnPdf');
 
-/*Route::group([], function () {
-   Route::get('/', 'HomeController@index')->name('home');
-});*/
+Route::post('/login/custom', [
+    'uses' => 'LoginController@login',
+    'as'  => 'login.custom'
+]);
+
+Route::group(['middleware' => 'auth'], function () {
+   Route::get('/home', function(){
+        return view('home');
+   })->name('home');
+
+   Route::get('/client', function(){
+        return view('/user/client');
+   })->name('client');
+
+});
 
 /*Route::get('/send-email', function () {
 	$details = [
