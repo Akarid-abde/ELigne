@@ -16,7 +16,6 @@
 
                     {{ __('You are logged in!') }}
 
-                    <a class="btn btn-primary" href="{{ route('CnPdf') }}">DownLoad</a>
                 </div>
             </div>
         </div>

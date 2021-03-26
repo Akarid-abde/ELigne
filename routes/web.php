@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*Route::get('/home', 'HomeController@index')->name('home');*/
+
 Route::get('/client', 'ClientController@index');
 Route::get('/admin', 'AdminController@index');
 
@@ -35,15 +36,15 @@ Route::get('/CN','CnController@index');
 Route::post('/CN/store','CnController@store');
 Route::get('/pdf','CnController@CnPdf')->name('CnPdf');
 
-Route::post('/login/custom', [
-    'uses' => 'LoginController@login',
+/*Route::post('/login/custom', [
+    'uses' => 'Auth\LoginController@login',
     'as'  => 'login.custom'
-]);
+]);*/
 
 Route::group(['middleware' => 'auth'], function () {
-   Route::get('/home', function(){
-        return view('home');
-   })->name('home');
+   Route::get('/admin', function(){
+        return view('/user/admin');
+   })->name('admin');
 
    Route::get('/client', function(){
         return view('/user/client');

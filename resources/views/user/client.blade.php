@@ -19,11 +19,12 @@
             </div>
         </div>
     </div>
-     <form action=" {{ url('/CN/store') }} " method="post" enctype="multipart/form-data">
+     <form action="{{url('/CN/store')}} " method="post" enctype="multipart/form-data">
     @csrf
+   {{$user->id}}
   <div class="form-group">
     <label for="exampleFormControlInput1">Bénifice</label>
-    <input type="text" name="bénificier" class="form-control" placeholder="Nom et Prenom">
+    <input type="text" value="{{$user->name}}"  disabled="true" name="bénificier" class="form-control" placeholder="Nom et Prenom">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Form Juridique</label>

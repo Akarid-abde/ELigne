@@ -16,7 +16,6 @@ class CnController extends Controller
 
     public function CnPdf()
     {
-
         $cns = cn::all();
         $pdf = \PDF::loadView('CN',compact("cns"));
         /*$pdf = \PDF::loadView('CN')->setPaper('a4','landscape')->setWarnings(false)->save('CN.pdf');*/

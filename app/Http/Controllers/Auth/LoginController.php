@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 class LoginController extends Controller
 {
+   
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -27,8 +30,27 @@ class LoginController extends Controller
      * @var string
      */
 
-    protected $redirectTo = RouteServiceProvider::HOME;
+    /*protected $redirectTo = RouteServiceProvider::HOME;*/
+    public function login(Request $request)
+   {
+    /*dd($request->all());*/
 
+   if(Auth::attempt([
+    'email' => $request->email,
+    'password' => $request->password
+   ]))
+   {
+     $user = User::where('email',$request->email)->first();
+     if($user->is_admin())
+     {
+       return redirect()->route('admin');
+     }
+     // return redirect()->route('client');
+     return view('user.client',['user' => $user]);
+   }
+    session()->flash('delete'," il faut s''inscrire !!");
+     return redirect()->route('login');
+   }
 
 
 
