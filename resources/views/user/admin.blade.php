@@ -13,6 +13,9 @@
                         </div>
                     @endif
                       <a class="btn btn-primary" href="{{ route('CnPdf') }}">DownLoad</a>
+                @foreach($cns as $cn)
+                      <a class="btn btn-primary" href="/pdf/{{$cn->id}}">View</a>
+                 @endforeach
                 </div>
             </div>
         </div>

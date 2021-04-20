@@ -11,6 +11,5 @@ class PdfController extends Controller
     {
     	$pdf = \PDF::loadView('CN');
     	return $pdf->download('CN.pdf');
-
     }
 }

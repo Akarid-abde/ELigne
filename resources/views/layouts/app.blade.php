@@ -33,6 +33,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style/style.css') }}" rel="stylesheet">
     @yield('styles')
 
 
@@ -40,9 +41,8 @@
 <body>
     <div id="app">
     
-     
     <div style="margin-bottom: 10px;">
-              @include('partial.menu')
+              @include('partial.menu1')
     </div>
 
     <div class="container">
@@ -57,6 +57,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <div style="margin-top: 10px;">
+              @include('partial.footer')
+        </div>
     </div>
 
 <script src="{{ asset('assets/js/bootstrap.min.js')}}" type="text/javascript" ></script>
@@ -70,6 +74,8 @@
     </script>
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script  src="{{ asset('assets/js/scripts-all.js')}}"></script>
+<script  src="{{ asset('assets/js/main.js')}}"></script>
 
      @yield('script')
 </body>

@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ asset('assets/css/style/style.css') }}" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -64,6 +65,7 @@
         </style>
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,22 +81,73 @@
                 </div>
             @endif
 
+
+
             <div class="content">
                 <div class="title m-b-md">
                     Entreprise En Ligne
                 </div>
 
-          <!--       <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div> -->
+                <header class="templateux-navbar" role="banner">
+
+      <div class="container"  data-aos="fade-down">
+        <div class="row">
+
+          <div class="col-3 templateux-logo">
+            <a href="index.html" class="animsition-link">HumanResources</a>
+          </div>
+          <nav class="col-9 site-nav">
+            <button class="d-block d-md-none hamburger hamburger--spin templateux-toggle templateux-toggle-light ml-auto templateux-toggle-menu" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button> <!-- .templateux-toggle -->
+
+            <ul class="sf-menu templateux-menu d-none d-md-block">
+              <li class="active">
+                <a href="index.html" class="animsition-link">Home</a>
+              </li>
+              <li><a href="about.html" class="animsition-link">About</a></li>
+              <li>
+                <a href="services.html" class="animsition-link">Services</a>
+                <ul>
+                  <li><a href="#">HR Consulting</a></li>
+                  <li>
+                    <a href="#">HR Management</a>
+                    <ul>
+                      <li><a href="#">Operational Management</a></li>
+                      <li>
+                        <a href="#">Service 3</a>
+                        <ul>
+                          <li><a href="#">Service 1</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="blog.html" class="animsition-link">Blog</a></li>
+              <li><a href="contact.html" class="animsition-link">Contact</a></li>
+            </ul> 
+
+          </nav> 
+          
+
+        </div> 
+      </div> 
+    </header> 
+   
+
+
         </div>
+
+
+
+
+
+<script  src="{{ asset('assets/js/scripts-all.js')}}"></script>
+<script  src="{{ asset('assets/js/main.js')}}"></script>
+<!-- <script  src="{{ asset('assets/js/jquery-3.3.1')}}"></script>
+<script  src="{{ asset('assets/js/style.js')}}"></script> -->
     </body>
 </html>

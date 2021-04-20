@@ -14,15 +14,17 @@ class CnController extends Controller
     }
 
 
-    public function CnPdf()
+    public function CnPdf($id)
     {
-        $cns = cn::all();
+        $cns = cn::find($id);
         $pdf = \PDF::loadView('CN',compact("cns"));
         /*$pdf = \PDF::loadView('CN')->setPaper('a4','landscape')->setWarnings(false)->save('CN.pdf');*/
          PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+         $pdf->save(storage_path().'/public/'.'CN.pdf');
+/*         $destinationPath=public_path().'CN.pdf';
+         $success = \File::move(base_path('CN.pdf'),$destinationPath);*/
         /*return $pdf->download('CN.pdf');*/
-         return $pdf->stream('CN.pdf');
-       
+         return $pdf->stream('CN.pdf');      
     }
 
 
@@ -33,9 +35,9 @@ class CnController extends Controller
      */
     public function index()
     {
-         return view("CN")->with([
+        /* return view("CN")->with([
             "cns" => cn::all(),
-        ]);
+        ]);*/
     }
 
     /**
@@ -43,11 +45,11 @@ class CnController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //
+        return view('user.client');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -56,30 +58,33 @@ class CnController extends Controller
      */
     public function store(Request $request)
     {
-         //validateur
+ //validateur
         $this->validate($request,[
             'bénificier' => "required",
             'FormJuridique' => "required",
             'ville' => "required",
             'dateExpération' => "required",
+            'pdf' => "required",
         ]);
         //store data
-        // dd($request->all());
-      /*  $cn = $request->image;*/
-   
+
+       if($request->hasFile('pdf'))
+        {
+        $pdf= $request->pdf->store('public');
+        }
+
         cn::create([
             'bénificier'  => $request->bénificier,
             'FormJuridique' => $request->FormJuridique,
             'ville' => $request->ville,
             'dateExpération' => $request->dateExpération,
+            'pdf' => $pdf,
         ]);
         //redirect User
-        return redirect("/client")->with([
-            "success" => "Menu Ajoute avec Success"
+          session()->flash('success','le cv est bien enregistrer !!');
+          return redirect()->back();
 
-        ]); 
-        }
-
+    }
     /**
      * Display the specified resource.
      *

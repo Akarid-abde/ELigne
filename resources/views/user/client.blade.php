@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -6,25 +6,28 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"> {{ __('Dashboard') }} Client</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    {{ __('Bonjour ') }} {{ Auth::user()->name }}
                 </div>
             </div>
         </div>
-    </div>
-     <form action="{{url('/CN/store')}} " method="post" enctype="multipart/form-data">
-    @csrf
-   {{$user->id}}
+    </div>    
+</div>
+@endsection
+
+
+
+<!-- <form action="{{url('/CN')}} " method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
+
   <div class="form-group">
     <label for="exampleFormControlInput1">Bénifice</label>
-    <input type="text" value="{{$user->name}}"  disabled="true" name="bénificier" class="form-control" placeholder="Nom et Prenom">
+    <input type="text" name="bénificier" class="form-control" placeholder="Nom et Prenom">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Form Juridique</label>
@@ -41,15 +44,19 @@
     <label for="exampleFormControlInput1">Ville</label>
     <input type="text" name="ville" class="form-control" placeholder="prenom">
   </div>
- <!--  <div class="form-group">
+ <div class="form-group">
     <label for="exampleFormControlTextarea1">Adresse</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div> -->
+
+<!--   <div class="form-group">
+      <label>PDF</label>
+      <input class="form-control" type="file" name="pdf">
+  </div>
+
   <div class="form-group">
     <button class="btn btn-primary" style="border-radius:15px;">
     Valider
     </button>
   </div>
-</form>
-</div>
-@endsection
+</form> -->

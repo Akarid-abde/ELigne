@@ -8,7 +8,7 @@ class cn extends Model
 {
     //
 
-   protected $fillable = ['bénificier','FormJuridique','dateExpération','ville'];
+   protected $fillable = ['bénificier','FormJuridique','dateExpération','ville','pdf'];
 
 
 

@@ -10,13 +10,17 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
+    public function fiches(){
+        return $this->hasMany('App\fiche');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','ville','adresse'
     ];
 
     /**
